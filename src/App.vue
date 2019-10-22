@@ -1,5 +1,7 @@
 <template>
-  <div id="app"></div>
+  <v-app>
+    <v-content></v-content>
+  </v-app>
 </template>
 
 <script>
