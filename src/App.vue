@@ -1,19 +1,21 @@
 <template>
   <v-app>
     <nav-bar />
-    <main>
-      <v-content></v-content>
-    </main>
+    <v-content>
+      <todo-list />
+    </v-content>
   </v-app>
 </template>
 
 <script>
 import NavBar from './components/NavBar.vue';
+import TodoList from './components/TodoList.vue';
 
 export default {
   name: 'App',
   components: {
     'nav-bar': NavBar,
+    'todo-list': TodoList,
   },
   data: () => ({
     //
