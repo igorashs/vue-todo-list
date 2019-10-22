@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <v-toolbar flat>
+    <v-app-bar flat app>
       <v-toolbar-title class="display-1">
         <span>Todo</span>
         <span class="font-weight-bold">List</span>
@@ -9,7 +9,7 @@
       <v-btn depressed fab class="grey darken-3">
         <v-icon x-large rigth>mdi-github-circle</v-icon>
       </v-btn>
-    </v-toolbar>
+    </v-app-bar>
   </nav>
 </template>
 
