@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <nav-bar />
-    <v-content>
+    <v-content class="ma-4">
       <todo-list />
     </v-content>
   </v-app>
