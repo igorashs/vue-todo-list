@@ -14,7 +14,11 @@
         v-for="todo in todos"
         :key="todo.id"
       >
-        <todo :initTodo="todo" @remove-todo="onRemoveTodo" />
+        <todo
+          :initTodo="todo"
+          @remove-todo="onRemoveTodo"
+          @save-todo="onSaveTodo"
+        />
       </v-col>
     </v-row>
   </v-container>
@@ -37,6 +41,11 @@ export default {
     };
   },
   methods: {
+    onSaveTodo(todo) {
+      const index = this.todos.findIndex(t => t.id === todo.id);
+      this.todos.splice(index, 1, todo);
+      todosStorage.setTodoList(this.todos);
+    },
     onAddTodo(todo) {
       console.log('add-todo', todo);
       this.todos.unshift(todo);

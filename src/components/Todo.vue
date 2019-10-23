@@ -12,14 +12,7 @@
         <span>Show All</span>
       </v-tooltip>
       <v-spacer></v-spacer>
-      <v-tooltip bottom>
-        <template v-slot:activator="{ on }">
-          <v-btn class="success" v-on="on">
-            <v-icon>mdi-pencil</v-icon>
-          </v-btn>
-        </template>
-        <span>Edit Todo</span>
-      </v-tooltip>
+      <todo-edit-form :initTodo="todo" @edit-todo="onEditTodo" />
       <v-spacer></v-spacer>
       <v-tooltip bottom>
         <template v-slot:activator="{ on }">
@@ -34,7 +27,12 @@
 </template>
 
 <script>
+import TodoEditForm from './TodoEditForm.vue';
+
 export default {
+  components: {
+    'todo-edit-form': TodoEditForm,
+  },
   data() {
     return {
       todo: this.initTodo,
@@ -44,6 +42,10 @@ export default {
   methods: {
     removeTodoHandler() {
       this.$emit('remove-todo', this.todo.id);
+    },
+    onEditTodo(todo) {
+      this.todo = todo;
+      this.$emit('save-todo', this.todo);
     },
   },
 };
