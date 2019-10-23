@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col>
-        <todo-form />
+        <todo-form @add-todo="onAddTodo" />
       </v-col>
     </v-row>
     <v-row>
@@ -35,6 +35,11 @@ export default {
     return {
       todos: [],
     };
+  },
+  methods: {
+    onAddTodo(todo) {
+      console.log('add-todo', todo);
+    },
   },
   created() {
     this.todos = todosStorage.getTodoList();
