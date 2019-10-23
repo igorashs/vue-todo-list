@@ -27,7 +27,8 @@ export default {
     }
 
     if (data) {
-      return JSON.parse(data);
+      const parsedData = JSON.parse(data);
+      if (parsedData.length > 0) return parsedData;
     }
     return mockTodoList;
   },
