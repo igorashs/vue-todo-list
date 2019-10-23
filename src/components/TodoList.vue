@@ -14,7 +14,7 @@
         v-for="todo in todos"
         :key="todo.id"
       >
-        <todo :initTodo="todo" />
+        <todo :initTodo="todo" @remove-todo="onRemoveTodo" />
       </v-col>
     </v-row>
   </v-container>
@@ -40,6 +40,11 @@ export default {
     onAddTodo(todo) {
       console.log('add-todo', todo);
       this.todos.unshift(todo);
+      todosStorage.setTodoList(this.todos);
+    },
+    onRemoveTodo(id) {
+      const index = this.todos.findIndex(t => t.id === id);
+      this.todos.splice(index, 1);
       todosStorage.setTodoList(this.todos);
     },
   },

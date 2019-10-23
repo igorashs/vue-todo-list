@@ -23,7 +23,7 @@
       <v-spacer></v-spacer>
       <v-tooltip bottom>
         <template v-slot:activator="{ on }">
-          <v-btn class="error" v-on="on">
+          <v-btn class="error" v-on="on" @click="removeTodoHandler">
             <v-icon>mdi-close-circle</v-icon>
           </v-btn>
         </template>
@@ -41,5 +41,10 @@ export default {
     };
   },
   props: ['initTodo'],
+  methods: {
+    removeTodoHandler() {
+      this.$emit('remove-todo', this.todo.id);
+    },
+  },
 };
 </script>
