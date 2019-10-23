@@ -1,10 +1,17 @@
 const mockTodoList = [
   {
     id: 1,
-    title: 'Demo',
-    dueDate: 'date',
-    description: 'Hello There this is a demo',
+    title: 'First Demo',
+    dueDate: '2019-10-23',
+    text: 'Hello There this is a demo',
     priority: 1,
+  },
+  {
+    id: 2,
+    title: 'Second Demo',
+    dueDate: '2019-10-23',
+    text: 'The Second Demo',
+    priority: 2,
   },
 ];
 
