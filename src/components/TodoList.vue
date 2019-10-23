@@ -2,14 +2,7 @@
   <v-container>
     <v-row>
       <v-col>
-        <v-tooltip right>
-          <template v-slot:activator="{ on }">
-            <v-btn class="grey darken-2" v-on="on">
-              <v-icon>mdi-plus</v-icon>
-            </v-btn>
-          </template>
-          <span>Create new Todo</span>
-        </v-tooltip>
+        <todo-form />
       </v-col>
     </v-row>
     <v-row>
@@ -29,12 +22,14 @@
 
 <script>
 import Todo from './Todo.vue';
+import todoForm from './TodoForm.vue';
 
 import todosStorage from '../todoListStorage';
 
 export default {
   components: {
     Todo,
+    'todo-form': todoForm,
   },
   data() {
     return {
