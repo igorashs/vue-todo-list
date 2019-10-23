@@ -5,7 +5,18 @@
         <v-btn class="grey darken-2">Add new Todo</v-btn>
       </v-col>
     </v-row>
-    <todo />
+    <v-row>
+      <v-col
+        cols="12"
+        sm="6"
+        md="4"
+        lg="3"
+        v-for="todo in todos"
+        :key="todo.id"
+      >
+        <todo :initTodo="todo" />
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
