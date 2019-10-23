@@ -39,6 +39,8 @@ export default {
   methods: {
     onAddTodo(todo) {
       console.log('add-todo', todo);
+      this.todos.unshift(todo);
+      todosStorage.setTodoList(this.todos);
     },
   },
   created() {
