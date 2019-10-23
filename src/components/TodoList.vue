@@ -2,7 +2,14 @@
   <v-container>
     <v-row>
       <v-col>
-        <v-btn class="grey darken-2">Add new Todo</v-btn>
+        <v-tooltip right>
+          <template v-slot:activator="{ on }">
+            <v-btn class="grey darken-2" v-on="on">
+              <v-icon>mdi-plus</v-icon>
+            </v-btn>
+          </template>
+          <span>Create new Todo</span>
+        </v-tooltip>
       </v-col>
     </v-row>
     <v-row>
