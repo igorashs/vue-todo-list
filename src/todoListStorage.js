@@ -15,7 +15,7 @@ const mockTodoList = [
   },
 ];
 
-let uniqueId = 0;
+let uniqueId = 2;
 
 export default {
   getTodoList() {
