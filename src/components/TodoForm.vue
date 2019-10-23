@@ -78,6 +78,8 @@
 </template>
 
 <script>
+import todosStorage from '../todoListStorage';
+
 export default {
   data() {
     return {
@@ -97,7 +99,10 @@ export default {
     addTodoHandler() {
       if (this.$refs.form.validate()) {
         this.todoForm = false;
-        this.$emit('add-todo', { ...this.todo });
+        const todo = { ...this.todo };
+        todo.id = todosStorage.getUniqueId();
+
+        this.$emit('add-todo', todo);
         this.$refs.form.reset();
         this.reset();
       }
