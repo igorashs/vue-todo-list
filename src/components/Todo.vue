@@ -5,9 +5,15 @@
       >{{ todo.title }}</v-card-title
     >
     <v-card-subtitle
-      :style="todo.isCompleted ? 'text-decoration: line-through' : null"
-      >{{ todo.dueDate }}</v-card-subtitle
-    >
+      ><span
+        :style="todo.isCompleted ? 'text-decoration: line-through' : null"
+        >{{ todo.dueDate }}</span
+      >
+      <v-spacer> </v-spacer>
+      <v-icon v-for="n in priorityLevel" :key="n">
+        mdi-star-outline
+      </v-icon>
+    </v-card-subtitle>
     <v-card-actions>
       <v-tooltip bottom>
         <template v-slot:activator="{ on }">
@@ -58,6 +64,14 @@ export default {
     };
   },
   props: ['initTodo'],
+  computed: {
+    priorityLevel() {
+      const { priority } = this.todo;
+      if (priority === 'high') return 3;
+      if (priority === 'medium') return 2;
+      return 1;
+    },
+  },
   methods: {
     removeTodoHandler() {
       this.$emit('remove-todo', this.todo.id);
