@@ -5,6 +5,7 @@ const mockTodoList = [
     dueDate: '2019-10-23',
     text: 'Hello There this is a demo',
     priority: 'low',
+    isCompleted: false,
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ const mockTodoList = [
     dueDate: '2019-10-23',
     text: 'The Second Demo',
     priority: 'medium',
+    isCompleted: true,
   },
 ];
 
