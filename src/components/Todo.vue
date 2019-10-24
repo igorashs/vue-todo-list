@@ -15,14 +15,7 @@
       </v-icon>
     </v-card-subtitle>
     <v-card-actions>
-      <v-tooltip bottom>
-        <template v-slot:activator="{ on }">
-          <v-btn class="purple" v-on="on">
-            <v-icon>mdi-book-open-variant</v-icon>
-          </v-btn>
-        </template>
-        <span>Show All</span>
-      </v-tooltip>
+      <todo-info :initTodo="todo" />
       <v-tooltip bottom>
         <template v-slot:activator="{ on }">
           <v-btn
@@ -53,10 +46,12 @@
 
 <script>
 import TodoEditForm from './TodoEditForm.vue';
+import TodoInfo from './TodoInfo.vue';
 
 export default {
   components: {
-    'todo-edit-form': TodoEditForm,
+    TodoEditForm,
+    TodoInfo,
   },
   data() {
     return {
