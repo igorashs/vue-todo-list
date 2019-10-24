@@ -47,7 +47,6 @@ export default {
       todosStorage.setTodoList(this.todos);
     },
     onAddTodo(todo) {
-      console.log('add-todo', todo);
       this.todos.unshift(todo);
       todosStorage.setTodoList(this.todos);
     },
