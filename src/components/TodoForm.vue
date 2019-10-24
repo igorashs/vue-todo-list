@@ -91,6 +91,7 @@ export default {
         dueDate: new Date().toISOString().substr(0, 10),
         text: '',
         priority: 'low',
+        isCompleted: false,
       },
       titleRules: [v => !!v || 'Title is required'],
     };

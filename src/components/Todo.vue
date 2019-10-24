@@ -1,7 +1,13 @@
 <template>
   <v-card>
-    <v-card-title>{{ todo.title }}</v-card-title>
-    <v-card-subtitle>{{ todo.dueDate }}</v-card-subtitle>
+    <v-card-title
+      :style="todo.isCompleted ? 'text-decoration: line-through' : null"
+      >{{ todo.title }}</v-card-title
+    >
+    <v-card-subtitle
+      :style="todo.isCompleted ? 'text-decoration: line-through' : null"
+      >{{ todo.dueDate }}</v-card-subtitle
+    >
     <v-card-actions>
       <v-tooltip bottom>
         <template v-slot:activator="{ on }">
@@ -11,9 +17,22 @@
         </template>
         <span>Show All</span>
       </v-tooltip>
+      <v-tooltip bottom>
+        <template v-slot:activator="{ on }">
+          <v-btn
+            :class="todo.isCompleted ? 'grey' : 'blue'"
+            v-on="on"
+            class="ml-2"
+            @click="onToggleComplete"
+          >
+            <v-icon>mdi-check</v-icon>
+          </v-btn>
+        </template>
+        <span v-if="todo.isCompleted">Mark Incomplete</span>
+        <span v-else>Mark Complete</span>
+      </v-tooltip>
       <v-spacer></v-spacer>
       <todo-edit-form :initTodo="todo" @edit-todo="onEditTodo" />
-      <v-spacer></v-spacer>
       <v-tooltip bottom>
         <template v-slot:activator="{ on }">
           <v-btn class="error" v-on="on" @click="removeTodoHandler">
@@ -45,6 +64,10 @@ export default {
     },
     onEditTodo(todo) {
       this.todo = todo;
+      this.$emit('save-todo', this.todo);
+    },
+    onToggleComplete() {
+      this.todo.isCompleted = !this.todo.isCompleted;
       this.$emit('save-todo', this.todo);
     },
   },

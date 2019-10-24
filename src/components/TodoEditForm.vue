@@ -3,7 +3,7 @@
     <template v-slot:activator="{ on: form }">
       <v-tooltip bottom>
         <template v-slot:activator="{ on: tooltip }">
-          <v-btn class="success" v-on="{ ...form, ...tooltip }">
+          <v-btn class="success mr-2" v-on="{ ...form, ...tooltip }">
             <v-icon>mdi-pencil</v-icon>
           </v-btn>
         </template>
