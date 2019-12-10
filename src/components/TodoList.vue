@@ -7,15 +7,14 @@
     </v-row>
     <v-row>
       <v-col
-        cols="12"
-        sm="6"
-        md="4"
-        lg="3"
         v-for="todo in todos"
         :key="todo.id"
+        cols="12"
+        lg="4"
+        md="6"
       >
         <todo
-          :initTodo="todo"
+          :init-todo="todo"
           @remove-todo="onRemoveTodo"
           @save-todo="onSaveTodo"
         />
@@ -40,6 +39,11 @@ export default {
       todos: [],
     };
   },
+
+  created() {
+    this.todos = todosStorage.getTodoList();
+  },
+
   methods: {
     onSaveTodo(todo) {
       const index = this.todos.findIndex(t => t.id === todo.id);
@@ -55,9 +59,6 @@ export default {
       this.todos.splice(index, 1);
       todosStorage.setTodoList(this.todos);
     },
-  },
-  created() {
-    this.todos = todosStorage.getTodoList();
   },
 };
 </script>
