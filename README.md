@@ -12,6 +12,7 @@
 ```bash
 git clone https://github.com/igorashs/vue-todo-list.git
 cd vue-todo-list
+npm install
 npm run serve
 ```
 
